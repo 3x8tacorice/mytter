@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Github Repository</title>
+</head>
+<body>
+<h2>Github Repositories <span sec:authentication="name"></span></h2>
+<ul>
+    <li th:each="repo : ${repos}" th:object="${repo}">
+        <a th:text="*{name}" th:href="*{htmlUrl}"></a>
+    </li>
+</ul>
+<form action="#" th:action="@{/logout}" method="post">
+    <button type="submit" value="POST" >Logout</button>
+</form>
+</body>
+</html>

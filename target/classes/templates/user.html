@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>User</title>
+</head>
+<body>
+<span sec:authentication="name"></span>
+    <ul th:each="user : ${users}">
+        <li th:text="|${user.id}. ${user.name}|">1. Nobita</li>
+    </ul>
+</body>
+</html>
