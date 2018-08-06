@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <title>Github Repository</title>
+</head>
+<body>
+<h2>Github Repositories <span sec:authentication="name"></span></h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" th:each="repo : ${repos}" th:object="${repo}">
+            <a th:text="*{name}" th:href="*{htmlUrl}"></a>
+        </div>
+    </div>
+    <form action="#" th:action="@{/logout}" method="post">
+        <button class="btn btn-success" type="submit" value="POST" >Logout</button>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

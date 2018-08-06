@@ -37,4 +37,11 @@ public class HelloController {
         model.addAttribute("repos", auth2RestTemplate.getForEntity(uri, GithubRepo[].class).getBody());
         return "repos";
     }
+
+    @GetMapping(path = "/repos_bs")
+    public String repositories_bs(Model model){
+        URI uri = UriComponentsBuilder.fromUriString("https://api.github.com/user/repos").build().toUri();
+        model.addAttribute("repos", auth2RestTemplate.getForEntity(uri, GithubRepo[].class).getBody());
+        return "repos_bs";
+    }
 }

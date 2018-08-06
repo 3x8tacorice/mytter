@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -18,6 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @SpringBootApplication
 @EnableWebSecurity
 @EnableOAuth2Sso
+@Profile(value={"local"})
 public class MainApp extends WebSecurityConfigurerAdapter {
 
     public static void main(String[] args) {
